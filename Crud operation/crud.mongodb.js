@@ -1,4 +1,9 @@
-
+// Basic Command of mongoDB
+// db
+// show dbs
+// use .....
+// show collections
+// 
 
 // const res1=show("dbs")
 // const res2=use("ecommerce")
@@ -13,3 +18,5 @@ show("collections")
 db.users.insertOne({
     name:"alpha"
 })
+
+
