@@ -1,0 +1,8 @@
+# IMPORT
+mongoimport --db practice --collection users --file users.json --jsonArray
+
+# EXPORT (JSON Array)
+mongoexport --db practice --collection users --jsonArray --out users.json
+
+# EXPORT (NDJSON)
+mongoexport --db practice --collection users --out users2.json
