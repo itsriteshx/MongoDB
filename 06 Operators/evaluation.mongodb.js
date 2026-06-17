@@ -1,27 +1,27 @@
 use('test')
 
-db.employees.insertMany([
-  {
-    name: "Rahul",
-    salary: 50000,
-    bonus: 10000
-  },
-  {
-    name: "Priya",
-    salary: 60000,
-    bonus: 5000
-  },
-  {
-    name: "Amit",
-    salary: 45000,
-    bonus: 15000
-  },
-  {
-    name: "Neha",
-    salary: 70000,
-    bonus: 2000
-  }
-])
+// db.employees.insertMany([
+//   {
+//     name: "Rahul",
+//     salary: 50000,
+//     bonus: 10000
+//   },
+//   {
+//     name: "Priya",
+//     salary: 60000,
+//     bonus: 5000
+//   },
+//   {
+//     name: "Amit",
+//     salary: 45000,
+//     bonus: 15000
+//   },
+//   {
+//     name: "Neha",
+//     salary: 70000,
+//     bonus: 2000
+//   }
+// ])
 
 db.employees.updateOne(
     { name: 'Rahul' },
