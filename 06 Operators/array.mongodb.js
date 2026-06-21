@@ -1,5 +1,4 @@
 use('test2')
-
 db.students.insertMany([
     {
     name: "Rahul",
@@ -51,7 +50,7 @@ db.products.insertMany([
     }
 ])
 
-wrong approach
+// wrong approach
 db.products.find({
     'reviews.user': 'Rahul',
     'reviews.rating': 5
