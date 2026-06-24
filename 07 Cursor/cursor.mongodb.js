@@ -18,3 +18,9 @@ while(cursor.hasNext()){
 
 db.data.find().sort({value:1}) //ascending sort
 db.data.find().sort({value:-1}) //descending sort
+
+db.data.find().limit(40)
+db.data.find().skip(90)
+
+// const data=db.data.find().sort({value: -1}).skip(5).limit(8)
+// console.log(data)
