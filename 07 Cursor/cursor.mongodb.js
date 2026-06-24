@@ -11,3 +11,7 @@ console.log(cursor.next())
 console.log(cursor.next())
 console.log(cursor.next())
 console.log(cursor.hasNext())
+
+while(cursor.hasNext()){
+    console.log(cursor.next())
+}
