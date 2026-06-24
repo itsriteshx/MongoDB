@@ -16,8 +16,8 @@ while(cursor.hasNext()){
     console.log(cursor.next())
 }
 
-db.data.find().sort({value:1}) //ascending sort
-db.data.find().sort({value:-1}) //descending sort
+// db.data.find().sort({value:1}) //ascending sort
+// db.data.find().sort({value:-1}) //descending sort
 
 db.data.find().limit(40)
 db.data.find().skip(90)
