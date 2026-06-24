@@ -1,4 +1,5 @@
 # employees
+
 db.employees.insertMany([
   {
     name: "Rahul",
