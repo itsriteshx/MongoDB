@@ -24,3 +24,9 @@ db.data.find().skip(90)
 
 // const data=db.data.find().sort({value: -1}).skip(5).limit(8)
 // console.log(data)
+
+const pg =4;
+const lm=5
+
+const data=db.data.find().skip((pg-1)*lm).limit(lm)
+console.log(data)
