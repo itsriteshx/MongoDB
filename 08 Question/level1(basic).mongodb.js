@@ -85,4 +85,36 @@ use("test")
 
 
 // q2
-db.users.find({age:{$gt:25}})
+// db.users.find({age:{$gt:25}})
+
+
+// q3
+// db.users.find({age:{$lte:30}})
+
+
+//q4
+// db.users.find({city: {$ne:"Mumbai"}})
+
+
+//q5
+// db.users.find({$and:[{age:{$gt:20}} ,{age:{$lt:30}}]})
+// db.users.find({age:{$gt:20,$lt:30}})
+
+//q6
+// db.users.find({},
+//     {name:1,email:1,_id:1}
+// )
+
+//q7
+// db.users.find({
+//     name: {$regex:"^R"}
+// })
+// db.users.find({
+//     name:/^R/
+// })
+
+//q8
+ db.users.find({
+    email:/gmail/
+})
+
