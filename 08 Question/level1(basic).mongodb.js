@@ -145,6 +145,31 @@ use("test")
 // })
 
 // q16
-db.users.find({
-    age:{$nin:[20,25,30]}
-})
+// db.users.find({
+//     age:{$nin:[20,25,30]}
+// })
+
+// q17
+// db.users.find().count()
+// db.users.countDocuments()
+
+// q18
+// db.users.find({
+//     name:"Rahul Sharma",
+//     city:"Delhi"
+// })
+
+// q19
+// db.users.find({
+//     $or:[
+//     {city:'Mumbai'},
+//     {city:'Delhi'}]
+// })
+
+// q20
+// db.users.find({
+//     age:{$not:{$gt:30}}
+// })
+// db.users.find({
+//     age:{$lte:30}
+// })
