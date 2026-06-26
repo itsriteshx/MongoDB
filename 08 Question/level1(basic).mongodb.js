@@ -114,7 +114,37 @@ use("test")
 // })
 
 //q8
- db.users.find({
-    email:/gmail/
-})
+//  db.users.find({
+//     email:/gmail/
+// })
 
+// Q.9
+// db.users.find({city:{$exists:true}})
+
+// Q.10
+// db.users.find({
+//     phone:{$exists:false}
+// })
+
+// Q 11
+// db.users.find().sort({age:1})
+
+// q12
+//  db.users.find().sort({age:-1})
+
+// q13
+// db.users.find().limit(5)
+
+// q14
+// const data=db.users.find().skip(5).limit(2)
+// console.log(data)
+
+// q15
+// db.users.find({
+//     age:{$in:[22,25,30]}
+// })
+
+// q16
+db.users.find({
+    age:{$nin:[20,25,30]}
+})
