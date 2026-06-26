@@ -173,3 +173,34 @@ use("test")
 // db.users.find({
 //     age:{$lte:30}
 // })
+
+// q21
+// db.users.find({
+//     name:/a$/
+// })
+
+// q22
+// db.users.find({
+//     email:/yahoo\.com$/
+// })
+
+// q23
+// db.users.find({
+//     age:{$type:"number"}
+// })
+
+// q24
+//  db.users.find({
+//     age:{
+//         $mod:[2, 0]
+//     }
+//  })
+
+// q25
+// db.users.find({
+//     $expr:{
+//         $gt:[
+//             {$strLenCP:"$name"},5
+//         ]
+//     }
+// })
