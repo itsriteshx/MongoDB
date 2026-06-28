@@ -72,12 +72,13 @@ use("test")
 
 
 // Q.29
-db.products.find({
-    category:'electronics'
-})
+// db.products.find({
+//     category:'electronics'
+// })
 
 
-// Q.30
-db.products.find({
-    stock:0
-})
+// // Q.30
+// db.products.find({
+//     stock:0
+// })
+
