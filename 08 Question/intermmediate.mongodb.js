@@ -1,5 +1,5 @@
 use("test")
- db.products.insertMany([
+db.products.insertMany([
     {
         name: "Gaming Laptop",
         price: 75000,
@@ -60,25 +60,30 @@ use("test")
 
 
 
-// Q.27
+// Q.26
 // db.products.find({
 //     price:{$gt:1000}
 // })
 
-// Q.28
+// Q.27
 // db.products.find({
 //     price:{$gt:500, $lt:2000}
 // })
 
 
-// Q.29
+// Q.28
 // db.products.find({
 //     category:'electronics'
 // })
 
+// q.29
+db.products.find({
+    stock:{$lt:10}
+})
 
 // // Q.30
 // db.products.find({
 //     stock:0
 // })
+
 
