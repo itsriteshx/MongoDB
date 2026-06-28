@@ -77,13 +77,32 @@ db.products.insertMany([
 // })
 
 // q.29
-db.products.find({
-    stock:{$lt:10}
-})
+// db.products.find({
+//     stock:{$lt:10}
+// })
 
 // // Q.30
 // db.products.find({
 //     stock:0
 // })
 
+// q31
+// db.products.find().sort({price:-1})
 
+// q32
+// db.products.find().sort({price:-1}).limit(5)
+
+// q33
+// db.products.find({
+//     name:/Phone/i
+// })
+
+// Q.34
+// db.products.find({
+//     discount:{$gt:20}
+// })
+
+// Q.35
+// db.products.find({
+//     category:{$ne:'electronics'}
+// })
