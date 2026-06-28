@@ -61,14 +61,14 @@ use("test")
 
 
 // Q.27
-db.products.find({
-    price:{$gt:1000}
-})
+// db.products.find({
+//     price:{$gt:1000}
+// })
 
 // Q.28
-db.products.find({
-    price:{$gt:500, $lt:2000}
-})
+// db.products.find({
+//     price:{$gt:500, $lt:2000}
+// })
 
 
 // Q.29
