@@ -298,3 +298,207 @@ db.products.updateMany(
   {},
   { $set: { featured: true } }
 )
+
+
+// 51. Delete products with stock = 0
+db.products.deleteMany({
+  stock: 0
+})
+
+
+// 52. Delete users who never placed orders
+db.users.deleteMany({
+  orders: { $exists: false }
+})
+
+
+// 53. Delete orders older than 5 years
+db.orders.deleteMany({
+  orderDate: {
+    $lt: new Date(
+      new Date().setFullYear(new Date().getFullYear() - 5)
+    )
+  }
+})
+
+
+// 54. Increase blog view count
+db.blogs.updateOne(
+  { _id: postId },
+  { $inc: { views: 1 } }
+)
+
+
+// 55. Add new comment
+db.blogs.updateOne(
+  { _id: postId },
+  {
+    $push: {
+      comments: {
+        user: "Rahul",
+        text: "Great article"
+      }
+    }
+  }
+)
+
+
+// 56. Remove specific comment
+db.blogs.updateOne(
+  { _id: postId },
+  {
+    $pull: {
+      comments: { user: "Rahul" }
+    }
+  }
+)
+
+
+// 57. Add product to wishlist
+db.users.updateOne(
+  { name: "Rahul" },
+  { $push: { wishlist: productId } }
+)
+
+
+// 58. Remove product from wishlist
+db.users.updateOne(
+  { name: "Rahul" },
+  { $pull: { wishlist: productId } }
+)
+
+
+// 59. Add item to shopping cart
+db.users.updateOne(
+  { name: "Rahul" },
+  {
+    $push: {
+      cart: {
+        productId: 101,
+        qty: 1
+      }
+    }
+  }
+)
+
+
+// 60. Remove item from cart
+db.users.updateOne(
+  { name: "Rahul" },
+  {
+    $pull: {
+      cart: { productId: 101 }
+    }
+  }
+)
+
+
+// ******************************************************
+// *****************ADVANCE LEVEL************************
+// ******************************************************
+
+
+// 61. Find products reviewed by Rahul
+db.products.find({
+  "reviews.user": "Rahul"
+})
+
+
+// 61. Find products where Rahul gave rating 5
+db.products.find({
+  reviews: {
+    $elemMatch: {
+      user: "Rahul",
+      rating: 5
+    }
+  }
+})
+
+
+// 63. Find products having rating ≥ 4
+db.products.find({
+  "reviews.rating": { $gte: 4 }
+})
+
+
+// 64. Find products where same review has rating ≥ 4
+db.products.find({
+  reviews: {
+    $elemMatch: {
+      rating: { $gte: 4 }
+    }
+  }
+})
+
+
+// 65. Find products having more than 5 reviews
+db.products.find({
+  $expr: {
+    $gt: [{ $size: "$reviews" }, 5]
+  }
+})
+
+
+// 66. Find products with price > 5000 and stock < 10
+db.products.find({
+  price: { $gt: 5000 },
+  stock: { $lt: 10 }
+})
+
+
+// 67. Find products with discount between 10 and 30
+db.products.find({
+  discount: { $gte: 10, $lte: 30 }
+})
+
+
+// 68. Find products whose name starts with "G"
+db.products.find({
+  name: /^G/
+})
+
+
+// 69. Find products whose name ends with "Laptop"
+db.products.find({
+  name: /Laptop$/
+})
+
+
+// 70. Find products containing "gaming" in tags
+db.products.find({
+  tags: "gaming"
+})
+
+
+// 71. Find products having both "gaming" and "electronics"
+db.products.find({
+  tags: { $all: ["gaming", "electronics"] }
+})
+
+
+// 72. Find products having exactly 3 tags
+db.products.find({
+  tags: { $size: 3 }
+})
+
+
+// 73. Find products where stock is even
+db.products.find({
+  stock: { $mod: [2, 0] }
+})
+
+
+// 74. Find products where name length > 10
+db.products.find({
+  $expr: {
+    $gt: [
+      { $strLenCP: "$name" },
+      10
+    ]
+  }
+})
+
+// 75. Find products where discount field exists
+db.products.find({
+  discount: { $exists: true }
+})
