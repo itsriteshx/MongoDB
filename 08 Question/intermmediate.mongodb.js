@@ -175,3 +175,30 @@ db.orders.insertMany([
         orderDate: new Date("2025-03-05")
     }
 ])
+
+// Q41
+// db.orders.find({
+//     user:/Rahul/
+
+// })
+
+// Q42
+// db.orders.find({
+//     totalAmount:{$gt:5000}
+// })
+
+// Q43
+
+//  db.orders.find({
+//     orderDate: {$gt: new Date('2025-01-01')}
+// })
+
+// Q.44.
+// db.orders.find({
+//     status: 'delivered'
+// })
+
+// Q.45.
+// db.orders.find({
+//     status: {$ne: 'cancelled'}
+// })
