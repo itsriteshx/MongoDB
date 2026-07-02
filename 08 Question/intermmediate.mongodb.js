@@ -106,3 +106,35 @@ db.products.insertMany([
 // db.products.find({
 //     category:{$ne:'electronics'}
 // })
+
+// Q.36
+
+// db.products.find({
+//     tags:"gaming"
+// })
+// db.products.find({
+//     tags:{$in:["gaming"]}
+// })
+
+// Q.37
+// db.products.find({
+//     tags:{$all:["gaming","laptop"]}
+// })
+
+// q.38
+// db.products.find({
+//     tags:{$size:3}
+// })
+
+// q.39
+
+// db.products.updateOne(
+//     {name:"Gaming Laptop"},
+//     {$push:{tags:"new"}}
+// )
+
+// Q.40
+db.products.updateOne(
+    {name:'Gaming Laptop'},
+    {$pull:{tags:'old'}}    
+)
