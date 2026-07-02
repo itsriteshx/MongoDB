@@ -100,3 +100,32 @@ db.products.find({
 //         $gt:[{$size:'$reviews'}, 2]
 //     }
 // })
+
+
+
+// Q.66
+// db.products.find({
+//     price: {$gt:5000},
+//     stock: {$lt:10}
+// })
+
+
+// Q.67
+// db.products.find({
+//     discount: {$gt:10, $lt:30}
+// })
+
+// Q.68
+// db.products.find({
+//     name: /^G/
+// })
+
+// Q.69
+// db.products.find({
+//     name: /Laptop$/
+// })
+
+// Q.70
+// db.products.find({
+//     tags:'gaming'
+// })
