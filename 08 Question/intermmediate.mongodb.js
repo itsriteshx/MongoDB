@@ -202,3 +202,71 @@ db.orders.insertMany([
 // db.orders.find({
 //     status: {$ne: 'cancelled'}
 // })
+
+//q 46
+// db.products.updateMany(
+//     {},
+//     {$mul: { price: 1.1 }}
+// )
+// db.products.find()
+
+// Q.47
+// db.products.updateMany(
+//     {},
+//     {$inc: {stock: 50}}
+// )
+
+
+//  Q.48
+// db.products.updateMany(
+//     {},
+//     {$rename: {price: 'productPrice'}}
+// )
+// db.products.find()
+
+// Q.49
+// db.products.updateMany(
+//     {},
+//     {$unset:{discount: 0}}
+// )
+// db.products.find()
+
+// Q.50
+// db.products.updateMany(
+//     {},
+//     {$set: {featured:true}}
+// )
+
+//  Q.51
+// db.products.deleteMany({
+//     stock:0
+// })
+
+// db.users.updateMany(
+//     {},
+//     {$set: {
+//         orders:[],
+//         wishlist:[],
+//         cart:[],
+//     }}
+// )
+
+// db.users.updateMany(
+//     {},
+//     {$push: {orders: {id: 101}}}
+// )
+// db.users.find()
+// db.users.updateMany(
+//     {name: 'Rahul Sharma'},
+//     {$pull: {orders: {id: 101}}}
+// )
+
+// Q.52
+// db.users.deleteOne({
+//     orders: {$size: 0}
+// })
+
+// Q.53
+// db.orders.deleteMany(
+//     { orderDate: { $lt: new Date(new Date().setFullYear(new Date().getFullYear() - 5)) } }
+// )
