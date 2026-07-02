@@ -140,3 +140,20 @@ db.products.find({
 // db.products.find({
 //     tags:{$size:3}
 // })
+
+// Q.73
+// db.products.find({
+//     stock: {$mod: [2, 0]}
+// })
+
+// Q.74
+// db.products.find({
+//     $expr:{
+//         $gt:[{$strLenCP: '$name'}, 13]
+//     }
+// })
+
+// Q.75
+// db.products.find({
+//     discount: {$exists: true}
+// })
