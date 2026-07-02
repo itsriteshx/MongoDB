@@ -58,3 +58,45 @@ db.products.insertMany([
         discount: 2
     }
 ])
+
+
+// 61
+db.products.find({
+    "reviews.user":"Rahul"
+})
+
+// Q.62
+// db.products.find({
+//     'reviews.user':'Rahul',
+//     'reviews.rating':5
+// })
+// or
+// db.products.find({
+//     reviews:{
+//         $elemMatch: {
+//             user:'Rahul',
+//             rating:5
+//         }
+//     }
+// })
+
+// Q.63
+// db.products.find({
+//     'reviews.rating': {$gte: 4}
+// })
+
+// Q.64
+// db.products.find({
+//     reviews:{
+//         $elemMatch: {
+//             rating: {$gte:4}
+//         }
+//     }
+// })
+
+// Q.65
+// db.products.find({
+//     $expr:{
+//         $gt:[{$size:'$reviews'}, 2]
+//     }
+// })
