@@ -129,3 +129,14 @@ db.products.find({
 // db.products.find({
 //     tags:'gaming'
 // })
+// 
+
+// Q.71
+// db.products.find({
+//     tags:{$all:["gaming","laptop"]}
+// })
+
+// Q.72
+// db.products.find({
+//     tags:{$size:3}
+// })
