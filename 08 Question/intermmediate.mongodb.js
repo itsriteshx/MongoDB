@@ -270,3 +270,87 @@ db.orders.insertMany([
 // db.orders.deleteMany(
 //     { orderDate: { $lt: new Date(new Date().setFullYear(new Date().getFullYear() - 5)) } }
 // )
+
+
+
+// db.blogs.insertMany([
+//     {
+//         title: "MongoDB Basics",
+//         views: 120,
+//         comments: [
+//             { user: "Rahul", text: "Great tutorial" },
+//             { user: "Amit", text: "Very helpful" }
+//         ]
+//     },
+//     {
+//         title: "JavaScript Async Guide",
+//         views: 300,
+//         comments: [
+//             { user: "Priya", text: "Awesome explanation" }
+//         ]
+//     },
+//     {
+//         title: "Node.js Performance Tips",
+//         views: 80,
+//         comments: []
+//     }
+// ])
+
+
+// Q.55
+// db.blogs.updateOne(
+//     { title: 'JavaScript Async Guide' },
+//     {
+//         $push:
+//         {
+//             comments:
+//                 { user: 'manas', text:'bhaut hi badhiya javascript ka course hai' }
+//         }
+//     }
+// )
+
+// Q.56
+// db.blogs.updateOne(
+//     {title: 'MongoDB Basics'},
+//     {$pull: {comments: {user: 'Amit'}}}
+// ) 
+// db.blogs.find()
+
+
+
+// Q.57
+// db.users.updateOne(
+//     {name:'Amit Verma'},
+//     {$push: {wishlist: {id: 101}}}
+// )
+
+
+// 58. Remove product from wishlist
+db.users.updateOne(
+  { name: "Rahul" },
+  { $pull: { wishlist: productId } }
+)
+
+
+// 59. Add item to shopping cart
+db.users.updateOne(
+  { name: "Rahul" },
+  {
+    $push: {
+      cart: {
+        productId: 101,
+        qty: 1
+      }
+    }
+  }
+)
+
+// 60. Remove item from cart
+db.users.updateOne(
+  { name: "Rahul" },
+  {
+    $pull: {
+      cart: { productId: 101 }
+    }
+  }
+)
