@@ -1,4 +1,4 @@
-// use("test")
+use("test")
 // db.products.insertMany([
 //     {
 //         name: "Gaming Laptop",
