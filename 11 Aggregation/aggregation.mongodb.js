@@ -122,3 +122,51 @@ db.orders.aggregate([
         $unwind: '$products'
     }
 ])
+
+
+// solve hard question
+
+db.orders.aggregate([
+    {
+        $match: {
+            orderDate: {
+                $gt: new Date(Date.now() - 24 * 60 * 60 * 1000)
+            }
+        }
+    },
+    {
+        $project: {
+          quantityDetails: '$products'
+        }
+    },
+    {
+        $unwind: '$quantityDetails'
+    },
+    {
+        $lookup: {
+          from: 'products',
+          localField: 'quantityDetails.productId',
+          foreignField: '_id',
+          as: 'productDetails'
+        }
+    },
+    {
+        $unwind: '$productDetails'
+    },
+    {
+        $group: {
+          _id: '$productDetails.category',
+          totalRevenue: {
+            $sum: {
+                $multiply: ['$quantityDetails.quantity', '$productDetails.price']
+            }
+          }
+        //   details: {
+        //     $push: {
+        //         quantityDetails: '$quantityDetails',
+        //         productDetails: '$productDetails'
+        //     }
+        //   }
+        }
+    }
+])
