@@ -321,16 +321,150 @@ use("test")
 // ])
 
 //ques 6                     
-let page = 5;
-let limit = 5;
-let noOfSkippedDocuments = (page-1) * limit
+// let page = 5;
+// let limit = 5;
+// let noOfSkippedDocuments = (page-1) * limit
 
-db.orders.aggregate([
+// db.orders.aggregate([
+//     {
+//         $skip: noOfSkippedDocuments
+//     },
+//     {
+//         $limit: limit
+//     }
+// ])
+
+// ques 7
+// db.orders.aggregate([
+//     {
+//         $group: {
+//           _id: "$city",
+        
+//         }
+//     }
+// ])
+
+
+
+// *USERS
+// db.users.insertMany([
+//   {
+//     _id: 1,
+//     name: "Manas",
+//     city: "Patna"
+//   },
+
+//   {
+//     _id: 2,
+//     name: "Rahul",
+//     city: "Delhi"
+//   },
+
+//   {
+//     _id: 3,
+//     name: "Priya",
+//     city: "Mumbai"
+//   },
+
+//   {
+//     _id: 4,
+//     name: "Sneha",
+//     city: "Kolkata"
+//   },
+
+//   {
+//     _id: 5,
+//     name: "Arjun",
+//     city: "Patna"
+//   }
+// ])
+
+// / *ORDERS-2
+// db.orders2.insertMany([
+//   {
+//     customerId: 1,
+//     product: "Laptop",
+//     amount: 50000
+//   },
+
+//   {
+//     customerId: 1,
+//     product: "Mouse",
+//     amount: 2000
+//   },
+
+//   {
+//     customerId: 2,
+//     product: "Shoes",
+//     amount: 6000
+//   },
+
+//   {
+//     customerId: 3,
+//     product: "Phone",
+//     amount: 35000
+//   }
+// ])
+
+
+// Q.8
+// db.orders.aggregate([
+//     {
+//         $unwind:'$products'
+//     },
+//     {
+//         $group:{
+//             _id: '$products.category',
+//             totalProductsSold: {
+//                 $sum: '$products.quantity'
+//             },
+//             totalRevenue:{
+//                 $sum:{
+//                     $multiply: [
+//                         '$products.price',
+//                         '$products.quantity'
+//                     ]
+//                 }
+//             },
+//             avgPrice: {
+//                 $avg: {
+//                     $multiply: [
+//                         '$products.price',
+//                         '$products.quantity'
+//                     ]
+//                 }
+//             }
+//         }
+//     }
+// ])
+
+
+// Q.9
+// db.users.aggregate([
+//     {
+//         $lookup: {
+//           from: 'orders2',
+//           localField: '_id',
+//           foreignField: 'customerId',
+//           as: 'orders'
+//         }
+//     }
+// ])
+
+
+// Q.10
+db.users.aggregate([
     {
-        $skip: noOfSkippedDocuments
+        $lookup: {
+          from: 'orders2',
+          localField: '_id',
+          foreignField: 'customerId',
+          as: 'orders'
+        }
     },
     {
-        $limit: limit
+        $match: {
+          orders: []
+        }
     }
 ])
-
