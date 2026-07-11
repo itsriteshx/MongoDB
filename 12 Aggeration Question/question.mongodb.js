@@ -217,20 +217,120 @@ use("test")
 
 
 // ques 1
+// db.orders.aggregate([
+//     {
+//         $unwind: "$products"
+//     },
+//     {
+//         $group: {
+//           _id: "$products.category",
+//           totalSale:{
+//             $sum:{
+//                 $multiply:["$products.price","$products.quantity"]
+//             }
+//           }
+//         }
+//     }
+// ])
+
+//ques 2
+
+// db.orders.aggregate([
+//     {$unwind: "$products"},
+    
+//     {
+//         $group: {
+//           _id: "$customer",
+//           totalSpent: {
+//             $sum:{
+//                 $multiply:[
+//                     "$products.price",
+//                     "$products.quantity"
+//                 ]
+//             }
+//           } 
+//         }
+//     },
+//     {
+//         $sort:{
+//             totalSpent: -1
+//         }
+//     },
+//     {
+//         $limit: 1
+//     }
+// ])
+
+// ques 3
+// db.orders.aggregate([
+//     { $unwind: "$products"},
+//     {
+//         $group: {
+//           _id: "$customer",
+//           products: {
+//             $push: "$products"
+//           }
+          
+//         }
+//     }
+      
+// ])
+
+// ques 4
+// db.orders.aggregate([
+//     {$unwind: "$products"},
+    
+//     {
+//         $group: {
+//           _id: "$customer",
+//           totalSpent: {
+//             $sum:{
+//                 $multiply:[
+//                     "$products.price",
+//                     "$products.quantity"
+//                 ]
+//             }
+//           } 
+//         }
+//     },
+//     {
+//        $match:{
+//         totalSpent:{$gt: 50000}
+//        }
+//     }
+// ])
+
+// ques 5
+// db.orders.aggregate([
+//     { $unwind: "$products"},
+//     {
+//         $group: {
+//           _id: "$products.name",
+//           totalSold:{
+//             $sum:"$products.quantity"
+//           }
+//         }
+//     },
+//     {
+//         $sort:{
+//             totalSold:-1
+//         }
+
+//     },
+    
+// ])
+
+//ques 6                     
+let page = 5;
+let limit = 5;
+let noOfSkippedDocuments = (page-1) * limit
+
 db.orders.aggregate([
     {
-        $unwind: "$products"
+        $skip: noOfSkippedDocuments
     },
     {
-        $group: {
-          _id: "$products.category",
-          totalSale:{
-            $sum:{
-                $multiply:["$products.price","$products.quantity"]
-            }
-          }
-        }
+        $limit: limit
     }
-
-
 ])
+
