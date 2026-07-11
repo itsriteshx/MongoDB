@@ -1,4 +1,3 @@
-
 // ***********QUESTIONS***************
 // Q.1 Find total sales of each category
 // Q.2 Find top spending customer
